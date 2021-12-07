@@ -1,0 +1,55 @@
+/* 
+<div @click="goMovieDetail(movie)" class="banner_img">          
+  <img :src="imgSrc+movie.poster_path" alt="포스터이미지"
+    style="height:450px; width:300px; object-fit:cover;">
+</div>
+이런 식으로 사용
+img밖에 div로 감싸고 class="banner_img"주고
+div에 @click으로 원하는 함수 실행
+*/
+img {
+  vertical-align: top;
+}
+.banner_img, .banner_bg{
+  display:inline-block;
+  position: relative;
+}
+.banner_img:hover:after,
+.banner_img:hover > .hover_text,
+.banner_bg:hover:after,
+.banner_bg:hover > .hover_text
+{
+  display:block;
+}
+.banner_img:after,.banner_bg:after,.hover_text{
+  display:none;
+}
+.banner_img:after,.banner_bg:after{
+  content:'';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0);
+  z-index: 10;
+}
+.banner_img {
+  overflow: hidden;
+}
+.banner_img img{
+  height: 340px;
+}
+.banner_img:hover img{
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+.hover_text {
+  position: absolute;
+  top: 140px;
+  left: 25px;
+  color: #fff;
+  z-index: 20;
+  font-weight: 600;
+  font-size: 20px;
+}
